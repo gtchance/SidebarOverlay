@@ -1,44 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-us">
   <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <meta charset="UTF-8">
+    <title>Sidebar Overlay by aperechnev</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
-
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-    <title>Sidebaroverlay by aperechnev</title>
   </head>
-
   <body>
-    <header>
-      <div class="inner">
-        <h1>Sidebaroverlay</h1>
-        <h2>Yet another implementation of sidebar menu, but here your menu appears over the top view controller.</h2>
-        <a href="https://github.com/aperechnev/SidebarOverlay" class="button"><small>View project on</small> GitHub</a>
-      </div>
-    </header>
+    <section class="page-header">
+      <h1 class="project-name">Sidebar Overlay</h1>
+      <h2 class="project-tagline">Yet another implementation of sidebar menu, but here your menu appears over the top view controller.</h2>
+      <a href="https://github.com/aperechnev/SidebarOverlay" class="btn">View on GitHub</a>
+      <a href="https://github.com/aperechnev/SidebarOverlay/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/aperechnev/SidebarOverlay/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
 
-    <div id="content-wrapper">
-      <div class="inner clearfix">
-        <section id="main-content">
-          <h1>
+    <section class="main-content">
+      <h1>
 <a id="sidebaroverlay" class="anchor" href="#sidebaroverlay" aria-hidden="true"><span class="octicon octicon-link"></span></a>SidebarOverlay</h1>
+
+<p><a href="https://travis-ci.org/aperechnev/SidebarOverlay"><img src="https://api.travis-ci.org/aperechnev/SidebarOverlay.svg?branch=develop" alt="Travis CI"></a> <a href="http://cocoapods.org/pods/SidebarOverlay"><img src="https://img.shields.io/cocoapods/v/SidebarOverlay.svg" alt="CocoaPods"></a> <img src="https://img.shields.io/cocoapods/p/SidebarOverlay.svg" alt="CocoaPods"> <a href="http://cocoadocs.org/docsets/SidebarOverlay/"><img src="https://img.shields.io/cocoapods/metrics/doc-percent/SidebarOverlay.svg" alt="CocoaDocs"></a></p>
 
 <p><code>SidebarOverlay</code> is an implementation of sidebar menu, similar to <code>ECSlidingViewController</code>. The difference is that in <code>SidebarOverlay</code> the sidebar menu covers the top view when user opens it, like on the picture below:</p>
 
-<p><img src="https://habrastorage.org/files/fe9/e26/1f8/fe9e261f883f4c36bbfb2ab19ae48256.gif" alt="SidebarOverlay application example"></p>
+<p><img src="https://habrastorage.org/files/812/9c0/7da/8129c07da55f4a95a110bea8eb4a8e5b.gif" alt="SidebarOverlay application example"></p>
 
 <h2>
 <a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
 
-<p>The easiest way to start development using <code>SidebarOverlay</code> is to install it via CocoaPods. Just add this to your <code>Podfile</code>:</p>
+<p>The easiest way to start development using <code>SidebarOverlay</code> is to install it via CocoaPods. Just add it to your <code>Podfile</code>:</p>
 
 <div class="highlight highlight-source-ruby"><pre>source <span class="pl-s"><span class="pl-pds">'</span>https://github.com/CocoaPods/Specs.git<span class="pl-pds">'</span></span>
 platform <span class="pl-c1">:ios</span>, <span class="pl-s"><span class="pl-pds">'</span>8.0<span class="pl-pds">'</span></span>
@@ -55,24 +48,14 @@ pod <span class="pl-s"><span class="pl-pds">'</span>SidebarOverlay<span class="p
 <a id="versioning" class="anchor" href="#versioning" aria-hidden="true"><span class="octicon octicon-link"></span></a>Versioning</h2>
 
 <p>We are using <a href="http://semver.org">semantic versioning</a>.</p>
-        </section>
 
-        <aside id="sidebar">
-          <a href="https://github.com/aperechnev/SidebarOverlay/zipball/master" class="button">
-            <small>Download</small>
-            .zip file
-          </a>
-          <a href="https://github.com/aperechnev/SidebarOverlay/tarball/master" class="button">
-            <small>Download</small>
-            .tar.gz file
-          </a>
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/aperechnev/SidebarOverlay">Sidebar Overlay</a> is maintained by <a href="https://github.com/aperechnev">aperechnev</a>.</span>
 
-          <p class="repo-owner"><a href="https://github.com/aperechnev/SidebarOverlay"></a> is maintained by <a href="https://github.com/aperechnev">aperechnev</a>.</p>
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
 
-          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
-        </aside>
-      </div>
-    </div>
+    </section>
 
   
   </body>

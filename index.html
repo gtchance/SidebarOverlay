@@ -41,8 +41,54 @@ pod <span class="pl-s"><span class="pl-pds">'</span>SidebarOverlay<span class="p
 <h2>
 <a id="getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting Started</h2>
 
+<p>It's quit simple to start developing with <code>SidebarOverlay</code>. First, we have to create three view controllers on our storyboard:</p>
+
+<ul>
+<li>container view controller</li>
+<li>top view controller</li>
+<li>left view controller</li>
+</ul>
+
+<p>The container view controller is the root view controller that makes all magic for us. It's necessary to subclass <code>SOContainerViewController</code> and assign it to our container view controller. Then we can setup top and left view controllers:</p>
+
+<div class="highlight highlight-source-swift"><pre><span class="pl-k">import</span> <span class="pl-c1">SidebarOverlay</span>
+
+<span class="pl-k">class</span> ContainerViewController: SOContainerViewController {
+
+    <span class="pl-k">override</span> <span class="pl-k">func</span> <span class="pl-en">viewDidLoad</span>() {
+        <span class="pl-k">super</span><span class="pl-k">.</span>viewDidLoad()
+
+        <span class="pl-k">self</span><span class="pl-k">.</span>topViewController <span class="pl-k">=</span> <span class="pl-k">self</span><span class="pl-k">.</span>storyboard?<span class="pl-k">.</span>instantiateViewControllerWithIdentifier(<span class="pl-s"><span class="pl-pds">"</span>topScreen<span class="pl-pds">"</span></span>)
+        <span class="pl-k">self</span><span class="pl-k">.</span>leftViewController <span class="pl-k">=</span> <span class="pl-k">self</span><span class="pl-k">.</span>storyboard?<span class="pl-k">.</span>instantiateViewControllerWithIdentifier(<span class="pl-s"><span class="pl-pds">"</span>leftScreen<span class="pl-pds">"</span></span>)
+    }
+
+}</pre></div>
+
+<p>Set the container view controller as initial on your storyboard and your basic application with sidebar is ready to run.</p>
+
+<h3>
+<a id="open-sidebar-menu-programatically" class="anchor" href="#open-sidebar-menu-programatically" aria-hidden="true"><span class="octicon octicon-link"></span></a>Open sidebar menu programatically</h3>
+
+<p>It's always good if user is able to open sidebar menu not only by swipe gesture, but also by tap on menu button. To open sidebar menu programatically, call <code>setMenuOpened(true)</code> method of container view controller:</p>
+
+<div class="highlight highlight-source-swift"><pre><span class="pl-k">class</span> TopViewController: UIViewController {
+
+    <span class="pl-k">@IBAction</span> <span class="pl-k">func</span> <span class="pl-en">showMeMyMenu</span> () {
+        <span class="pl-k">if</span> <span class="pl-k">let</span> container <span class="pl-k">=</span> <span class="pl-k">self</span><span class="pl-k">.</span>so_containerViewController {
+            container<span class="pl-k">.</span>setMenuOpened(<span class="pl-c1">true</span>)
+        }
+    }
+
+}</pre></div>
+
+<p>As you see, we have property named <code>so_containerViewController</code>. This property is automatically added to all view controllers and you're able to access it everywhere.</p>
+
+<p>To close the sidebar menu, just call the <code>setMenuOpened(false)</code> method.</p>
+
 <h2>
 <a id="how-to-contribute" class="anchor" href="#how-to-contribute" aria-hidden="true"><span class="octicon octicon-link"></span></a>How To Contribute</h2>
+
+<p>Please follow the <a href="http://danielkummer.github.io/git-flow-cheatsheet/index.html">git-flow</a> notation and make sure that all tests are passed before contributing. Your questions and pull requests are welcome.</p>
 
 <h2>
 <a id="versioning" class="anchor" href="#versioning" aria-hidden="true"><span class="octicon octicon-link"></span></a>Versioning</h2>

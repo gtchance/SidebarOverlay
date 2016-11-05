@@ -48,6 +48,8 @@ public class SOContainerViewController: UIViewController, UIGestureRecognizerDel
     private var _topViewController: UIViewController?
     private var _sideViewController: UIViewController?
     
+    private var panGestureRecognizer: UIPanGestureRecognizer!
+    
     private var contentCoverView: UIView
     
     //
@@ -96,11 +98,11 @@ public class SOContainerViewController: UIViewController, UIGestureRecognizerDel
                 if widthForPanGestureRecognizer > 0 {
                     let panView = UIView(frame: CGRectMake(0, CGFloat(heightOffsetForPanGestureRecognizer), CGFloat(widthForPanGestureRecognizer), self.view.frame.size.height))
                     panView.backgroundColor = UIColor.clearColor()
-                    panView.addGestureRecognizer(self.createPanGestureRecognizer())
+                    panView.addGestureRecognizer(panGestureRecognizer)
                     
                     vc.view.addSubview(panView)
                 } else {
-                    vc.view.addGestureRecognizer(self.createPanGestureRecognizer())
+                    vc.view.addGestureRecognizer(panGestureRecognizer)
                 }
             }
             
@@ -130,8 +132,7 @@ public class SOContainerViewController: UIViewController, UIGestureRecognizerDel
                 self.addChildViewController(vc)
                 self.view.addSubview(vc.view)
                 vc.didMoveToParentViewController(self)
-                
-                vc.view.addGestureRecognizer(self.createPanGestureRecognizer())
+                vc.view.addGestureRecognizer(panGestureRecognizer)
                 
                 var menuFrame = vc.view.frame
                 menuFrame.size.width = self.view.frame.size.width - SideViewControllerTrailingIndent
@@ -178,6 +179,17 @@ public class SOContainerViewController: UIViewController, UIGestureRecognizerDel
      */
     public var menuSide: SOSide = .Left
     
+    
+    public var swipeToRevealSideViewController: Bool = true {
+        didSet {
+            if swipeToRevealSideViewController {
+                self.topViewController?.view.addGestureRecognizer(panGestureRecognizer)
+            } else {
+                self.topViewController?.view.removeGestureRecognizer(panGestureRecognizer)
+            }
+        }
+    }
+    
     /**
      
      */
@@ -206,6 +218,9 @@ public class SOContainerViewController: UIViewController, UIGestureRecognizerDel
     public override func viewDidLoad() {
         super.viewDidLoad()
         
+        panGestureRecognizer  =  UIPanGestureRecognizer.init(target: self, action: #selector(SOContainerViewController.moveMenu(_:)))
+        
+        
         self.contentCoverView.frame = self.view.bounds
         self.contentCoverView.backgroundColor = self.topViewControllerDimColor
         self.contentCoverView.alpha = 0.0
@@ -215,7 +230,7 @@ public class SOContainerViewController: UIViewController, UIGestureRecognizerDel
         
         let panOnContentCoverVewGesture = UIPanGestureRecognizer(target: self, action: #selector(SOContainerViewController.contentCoverViewClicked))
         self.contentCoverView.addGestureRecognizer(panOnContentCoverVewGesture)
-        
+        swipeToRevealSideViewController = true
         self.view.addSubview(self.contentCoverView)
     }
     
@@ -243,10 +258,6 @@ extension SOContainerViewController {
         }
     }
     
-    private func createPanGestureRecognizer() -> UIPanGestureRecognizer! {
-        return UIPanGestureRecognizer.init(target: self, action: #selector(SOContainerViewController.moveMenu(_:)))
-    }
-
 }
 
 //

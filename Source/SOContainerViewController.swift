@@ -226,7 +226,6 @@ open class SOContainerViewController: UIViewController, UIGestureRecognizerDeleg
         super.init(coder: aDecoder)
     }
 
-    panGestureRecognizer  =  UIPanGestureRecognizer.init(target: self, action: #selector(SOContainerViewController.moveMenu(_:)))
 
 
     //
@@ -240,6 +239,8 @@ open class SOContainerViewController: UIViewController, UIGestureRecognizerDeleg
         self.contentCoverView.alpha = 0.0
 
         swipeToRevealSideViewController = true
+        panGestureRecognizer  =  UIPanGestureRecognizer(target: self, action: #selector(SOContainerViewController.moveMenu(_:)))
+
 
         let tapOnContentCoverViewGesture = UITapGestureRecognizer(target: self, action: #selector(SOContainerViewController.contentCoverViewClicked))
         self.contentCoverView.addGestureRecognizer(tapOnContentCoverViewGesture)

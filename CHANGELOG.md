@@ -1,3 +1,13 @@
+# 4.1
+
+* Swift Package Manager support
+* Fixed bug with frame of top view controller
+
+# 4.0.0
+
+* Migrated to Swift 3
+* Removed `SideViewControllerTrailingIndent` property. Use `sideMenuWidth` property instead.
+
 # 3.0.0
 
 * Now it's possible to choose side where sibedar view controller appears from. Please the the PR #14 (https://github.com/alexkrzyzanowski/SidebarOverlay/pull/14). Thanks to [Eugene Mozharovsky](https://github.com/Mozharovsky).

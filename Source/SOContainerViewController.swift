@@ -238,7 +238,6 @@ open class SOContainerViewController: UIViewController, UIGestureRecognizerDeleg
         self.contentCoverView.backgroundColor = self.topViewControllerDimColor
         self.contentCoverView.alpha = 0.0
 
-        swipeToRevealSideViewController = true
         panGestureRecognizer  =  UIPanGestureRecognizer(target: self, action: #selector(SOContainerViewController.moveMenu(_:)))
 
 
@@ -248,6 +247,7 @@ open class SOContainerViewController: UIViewController, UIGestureRecognizerDeleg
         let panOnContentCoverVewGesture = UIPanGestureRecognizer(target: self, action: #selector(SOContainerViewController.contentCoverViewClicked))
         self.contentCoverView.addGestureRecognizer(panOnContentCoverVewGesture)
 
+        swipeToRevealSideViewController = true
         self.view.addSubview(self.contentCoverView)
     }
 

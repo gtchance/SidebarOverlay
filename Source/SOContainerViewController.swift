@@ -51,7 +51,7 @@ open class SOContainerViewController: UIViewController, UIGestureRecognizerDeleg
     fileprivate var _topViewController: UIViewController?
     fileprivate var _sideViewController: UIViewController?
 
-    fileprivate var contentCoverView: UIView
+    public var contentCoverView: UIView
 
     fileprivate var panGestureRecognizer: UIPanGestureRecognizer!
 
